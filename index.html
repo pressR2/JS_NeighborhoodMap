@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <title>Neighborhood Map</title>
+    <script src="locations.json"></script>
+</head>
+<body>
+    <main class="Main">
+            <header class="App-header">
+                    <span class="drawer-control" role="button" aria-label="open drawer" tabIndex=[0]>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z" />
+                            </svg>
+                    </span>
+            </header>
+            <section id="menu">
+               <h3 class="menu-title">Visit in Wroclaw</h3>
+               <div class="filter-container">
+                    <input id="filter-location" type="text" placeholder="Filter location" aria-label="filter query" />
+                    <button class="filter">
+                        Filter
+                    </button>
+                </div>
+                <ul class="list"></ul>
+            </section>
+            <div class="map-container">
+                <div id="map" role="application"></div>
+            </div>
+    </main>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGkqpNu4mZAh80NZrhQnVsbAHxj-AzCE&callback=initMap">
+    </script>
+    <script src="app.js"></script>
+    
+</body>
+</html>

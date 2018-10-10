@@ -1,0 +1,208 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/*========================Main========================*/
+.Main {
+  height: 100vh;
+}
+
+.map-container {
+  width: 100%;
+  height: 95vh;
+}
+
+#map {
+  height: 100%;
+}
+
+/*========================Menu========================*/
+.App-header {
+  background-color: #252831;
+  width:100%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+}
+
+.drawer-control {
+  padding-left: 11px;
+  width: 33px;
+  fill: #02b3e4;
+}
+
+.menu-title {
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 5px 0 5px 0; 
+}
+
+.filter-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#filter-location {
+  width: 70%;
+  height: 25px;
+  padding-left: 3px;
+}
+
+.filter {
+  height: 25px;
+  width: 30%;
+}
+
+input,
+button {
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+  -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+  box-sizing: border-box;
+}
+
+.list {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 15px;
+  line-height: 2.9;
+  font-size: 16px;
+}
+
+.list-item a:hover {
+  color: white;
+}
+
+.list-item a {
+  color: #b0b5b7;
+  text-decoration: none;
+}
+
+#menu {
+  z-index: 10;
+  width: 252px;
+  height: 95vh;
+  position: absolute;
+  background-color: black;
+  color: #b0b5b7;
+  transform: translate(-252px,0);
+  transition: transform 0.3s ease;
+}
+
+#menu.open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/*========================Info Window========================*/
+#infoWindow {
+  line-height: 1.5;
+}
+
+.infoHeader {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.close-search {
+  width: 40px;
+  height: 40px;
+  background: white;
+  background-image: url('./icons/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  margin-left: auto;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.close-search:hover {
+  /*background:#d9d9d9;*/
+  border-radius: 50%;
+  box-shadow: 0px 1px 10px -1px rgba(0,0,0,0.75);
+}
+
+#infoWindow b {
+  color:#0077b3;
+}
+
+#infoWindow h4 {
+  margin: 14px 14px 5px;
+  color: black;
+}
+
+#infoWindow p {
+  text-align: justify;
+  margin: 10px 12px 0 12px;
+}
+
+footer {
+  background-color: #252831;
+  color: #b0b5b7;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 6px;
+}
+
+/*========================Media Query========================*/
+@media screen and (min-width: 585px) {
+  #infoWindow {
+    bottom: 0;
+    z-index: 10;
+    width: 252px;
+    height: 47%;
+    overflow: auto;
+    background: white;
+    color: black;
+    position: absolute;
+  }
+
+  .close-search {
+    background: white url('./icons/arrow-back.svg');
+    width: 25px;
+    height: 25px;
+    margin-top: 7px;
+  }
+
+  #infoWindow h4 {
+    font-size: 15px;
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
+  #infoWindow p {
+    text-align: unset;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-left: 7px;
+    margin-right: 4px;
+  }
+}
+
+
+@media screen and (max-height: 1000px) {
+  #menu, .map-container {
+    height: 93vh;
+  }
+  .App-header {
+    height: 7vh;
+  }   
+}
+
+
+@media screen and (min-height: 1200px) {
+  #infoWindow {
+    height: 58%;
+  }
+}
