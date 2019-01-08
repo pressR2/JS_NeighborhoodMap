@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script src="jquery.dotdotdot.js"></script>
+    <script src="jquery.js"></script> -->
     <link rel="stylesheet" href="app.css">
     <title>Neighborhood Map</title>
     <script src="locations.json"></script>
@@ -21,17 +23,36 @@
                <h3 class="menu-title">Visit in Wroclaw</h3>
                <div class="filter-container">
                     <input id="filter-location" type="text" placeholder="Filter location" aria-label="filter query" />
-                    <button class="filter">
-                        Filter
-                    </button>
+                    <button class="filter"><img class="icon" src="funnel.svg"/>Filter</button>
                 </div>
                 <ul class="list"></ul>
             </section>
+            <aside id="info-window" tabIndex=[0]>
+                <header class="info-window-header">
+                    <div class="header-title">
+                        <h3></h3>
+                    </div>
+                    <div class="close">
+                        <span class="close-search" role="button" aria-label="close infoWindow" tabIndex=[0]>
+                            <img class="close-svg" src="close.svg"/>
+                        </span>
+                    </div>
+                <hr>
+                <span class="wiki-source">From Wikipedia</span>
+                </header>
+                <!-- <div class = "image-countainer"> -->
+                    <img class="image" alt="">
+                <!-- </div> -->
+                <div id="info-window-wrapper">
+                    <article></article>
+                    
+                </div>
+            </aside>
             <div class="map-container">
                 <div id="map" role="application"></div>
             </div>
     </main>
-    <script async defer
+    <script async defer onerror= "handleError()"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGkqpNu4mZAh80NZrhQnVsbAHxj-AzCE&callback=initMap">
     </script>
     <script src="app.js"></script>
