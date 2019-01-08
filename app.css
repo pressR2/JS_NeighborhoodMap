@@ -7,7 +7,8 @@ body {
   padding: 0;
 }
 
-/*========================Main========================*/
+/*===================Main===================*/
+
 .Main {
   height: 100vh;
 }
@@ -21,7 +22,8 @@ body {
   height: 100%;
 }
 
-/*========================Menu========================*/
+/*===================Menu====================*/
+
 .App-header {
   background-color: #252831;
   width:100%;
@@ -36,6 +38,22 @@ body {
   fill: #02b3e4;
 }
 
+#menu {
+  z-index: 10;
+  width: 252px;
+  height: 95vh;
+  position: absolute;
+  background-color: black;
+  color: #b0b5b7;
+  transform: translate(-252px,0);
+  transition: transform 0.3s ease;
+}
+
+#menu.open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
 .menu-title {
   font-size: 16px;
   letter-spacing: 1px;
@@ -44,9 +62,9 @@ body {
 }
 
 .filter-container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 #filter-location {
@@ -58,6 +76,18 @@ body {
 .filter {
   height: 25px;
   width: 30%;
+  background-color: #2f85d4;
+  color: aliceblue;
+}
+
+.filter:hover {
+  background-color: #137adb;
+}
+
+.icon {
+  height: 56%;
+  float: left;
+  margin-left: 7px;
 }
 
 input,
@@ -86,123 +116,217 @@ button {
   text-decoration: none;
 }
 
-#menu {
-  z-index: 10;
-  width: 252px;
-  height: 95vh;
-  position: absolute;
-  background-color: black;
-  color: #b0b5b7;
-  transform: translate(-252px,0);
-  transition: transform 0.3s ease;
-}
+/*==================Info Window Header=================*/
 
-#menu.open {
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-
-/*========================Info Window========================*/
-#infoWindow {
+#info-window {
   line-height: 1.5;
 }
 
-.infoHeader {
+.info-window-header {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
 
+.header-title {
+  width: 84%;
+  margin-top: 12px;
+}
+
+.header-title h3 {
+  margin: 8px 0 2px 9px;
+  font-size: 16px;
+  /* order: -1 */
+  /* border-bottom: solid 20px #dcd4df;
+  padding: 30px 10px;
+  margin: 20px 0 40px;
+  display: inline-block;  */
+}
+
+.close {
+    width: 16%;
+    margin-top: 2px;
+}
+
 .close-search {
-  width: 40px;
-  height: 40px;
-  background: white;
-  background-image: url('./icons/arrow-back.svg');
+  width: 22px;
+  height: 22px;
+  /* background: #dbdbdb; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: 28px;
-  margin-left: auto;
-  margin-right: 8px;
-  margin-top: 4px;
+  float: right;
+  margin-top: 8px;
+  margin-right: 9px;
 }
 
 .close-search:hover {
   /*background:#d9d9d9;*/
   border-radius: 50%;
-  box-shadow: 0px 1px 10px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 4px 0.5px rgba(0,0,0,0.75);
 }
 
-#infoWindow b {
-  color:#0077b3;
+.close-svg {
+  height: 9px;
+  margin-left: 7px;
+  margin-bottom: 2px;
 }
 
-#infoWindow h4 {
+hr {
+  width: 100%;
+  margin-top: 0;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 1px;
+}
+
+.wiki-source {
+  margin: 1px 0 15px 11px;
+  font-size: 13px;
+}
+
+/*================Info Window content=============*/
+/* .image-countainer {
+  width: 240px;
+  height: 400px;
+} */
+
+.image {
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  /* border: 1px solid; */
+  border-radius: 50px 0 50px 0;
+  /* height: 200px; */
+
+}
+
+#info-window-wrapper {
+  overflow: auto;
+  position: relative;
+  /* margin-bottom: -20px; */
+  /* border: solid 1px; */
+  /* height: 200px; */
+  /* width: 245px; */
+  /* margin-left: 2px; */
+}
+
+#info-window {
+  bottom: 0;
+  z-index: 10;
+  width: 252px;
+  height: 47%;
+  overflow: auto;
+  background: #dbdbdb;
+  color: black;
+  position: absolute;
+  visibility: hidden;
+  box-shadow: 0px 0px 4px 0.5px inset rgba(0,0,0,0.75);
+  /* padding-bottom: 22px; to naprawiło nienachodzenie tekstu na footer */
+}
+
+#info-window.hide {
+  transform: translate(-252px,0);
+  transition: transform 0.3s ease; 
+} 
+
+#info-window-wrapper b {
+  font-weight: normal;
+}
+
+#info-window-wrapper h4 {
   margin: 14px 14px 5px;
   color: black;
 }
 
-#infoWindow p {
-  text-align: justify;
-  margin: 10px 12px 0 12px;
+#info-window-wrapper p {
+  /* text-align: justify; */
+  margin: 8px 12px 0 12px;
+  display: block; 
+  float:right;
+  overflow: hidden;
+  font-size: 15px;
+  /* max-height: 400px; */
 }
 
-footer {
+.multilineEllipseText {
+     /* max-height: 400px;  */
+    /* color: black; */
+    /* width: 520px; */
+}
+
+article a {
+  text-decoration: none;
+  color: #2f85d7;
+}
+
+/* footer {
   background-color: #252831;
   color: #b0b5b7;
   text-align: center;
   font-size: 13px;
-  margin-top: 10px;
-  padding: 6px;
-}
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 20px;
+} */
 
 /*========================Media Query========================*/
-@media screen and (min-width: 585px) {
-  #infoWindow {
-    bottom: 0;
-    z-index: 10;
-    width: 252px;
-    height: 47%;
-    overflow: auto;
-    background: white;
-    color: black;
-    position: absolute;
-  }
+/* @media screen and (min-width: 420px) {
+    .image {
+        margin-left: auto;
+        margin-right: auto;
+    }
+} */
+
+@media screen and (max-width: 545px) {
 
   .close-search {
-    background: white url('./icons/arrow-back.svg');
-    width: 25px;
-    height: 25px;
-    margin-top: 7px;
-  }
+    margin-top: 7px; 
+  } 
 
-  #infoWindow h4 {
-    font-size: 15px;
-    margin-bottom: 0;
-    margin-top: 10px;
-  }
-
-  #infoWindow p {
-    text-align: unset;
-    font-size: 15px;
+  #info-window {
+    width: 100%;
+    height: 100%;
     line-height: 1.4;
-    margin-left: 7px;
-    margin-right: 4px;
+    font-size: 16px;
+    padding-bottom: 0;
+  }
+
+  .wiki-source {
+    margin-left: 11px;
+  }
+  
+  .header-title h3 {
+    max-width: 96%;
+  } 
+
+  .close-svg {
+    margin-left: 5px;
+    margin-top: 5px;
   }
 }
 
 
-@media screen and (max-height: 1000px) {
-  #menu, .map-container {
+@media screen and (min-height: 1000px) {
+
+  #info-window {
+    /* overflow: auto; */
+    /* position: absolute;
+    bottom: 0; */
+    /* z-index: 10; */
+  }
+  /* #menu, .map-container {
     height: 93vh;
   }
   .App-header {
     height: 7vh;
-  }   
+  }    */
 }
 
 
 @media screen and (min-height: 1200px) {
-  #infoWindow {
+  #info-window {
     height: 58%;
   }
 }
